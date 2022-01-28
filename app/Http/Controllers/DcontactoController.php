@@ -64,7 +64,7 @@ class DcontactoController extends Controller
      */
     public function edit(Dcontacto $dcontacto)
     {
-        return view('perfiles.edit', compact('dcontacto'));
+        return view('perfiles.show', compact('dcontacto'));
     }
 
     /**

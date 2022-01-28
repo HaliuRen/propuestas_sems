@@ -277,252 +277,42 @@
                 <span class="h6 sp1">DATOS PERSONALES</span>
               </div>
               <div class="col-md-9" id="datosPersonales">
-                <div class="row g-3">
-                  <form 
+                <form 
                   action="{{ route('perfiles.update', ['perfil' => $perfil->id]) }}"
                   method="POST"
                   enctype="multipart/form-data"
-                  >
-                    @csrf
-                    @method('PUT')
+                >
+                  @csrf
+                  @method('PUT')
 
-                    <div class="form-group">
-                        <label for="nombre">Nombre</label>
-    
-                        <input type="text"
-                            name="nombre"
-                            class="form-control @error('nombre') is-invalid @enderror"
-                            id="nombre"
-                            placeholder="Tu nombre"
-                            value="{{ $perfil->usuario->name }}"
-                        >
-    
-                        @error('nombre')
-                            <span class="invalid-feedback d-block" role="alert">
-                                <strong>{{$message}}</strong>
-                            </span>
-                        @enderror
-                    </div>
-    
-                    <div class="form-group">
-                        <label for="url">Sitio Web</label>
-    
-                        <input type="text"
-                            name="url"
-                            class="form-control @error('url') is-invalid @enderror"
-                            id="url"
-                            placeholder="Tu Sitio Web"
-                            value="{{ $perfil->usuario->url }}"
-                        >
-    
-                        @error('url')
-                            <span class="invalid-feedback d-block" role="alert">
-                                <strong>{{$message}}</strong>
-                            </span>
-                        @enderror
-                    </div>
-    
-                    <div class="form-group mt-3">
-                        <label for="biografia">Biografía</label>
-    
-                        <input id="biografia" type="hidden" name="biografia" value="{{ $perfil->biografia}}">
-    
-                        <trix-editor 
-                            input="biografia"
-                            class="form-control @error('biografia') is-invalid @enderror"
-                        ></trix-editor>
-                        <!-- mostrando mensaje de validacion -->
-                        @error('biografia')
-                            <span class="invalid-feedback d-block" role="alert">
-                                <strong>{{$message}}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                    
-                    <div class="form-group mt-3">
-                        <label for="imagen">Tu foto de perfil:</label>
-    
-                        <input 
-                            id="imagen"
-                            type="file"
-                            class="form-control @error('imagen') is-invalid @enderror"
-                            name="imagen"
-                        >
+                  <div class="col-md-4">
+                    <label for="Email" class="form-label">EMAIL</label>
+                    <input 
+                      type="text" 
+                      name="email"
+                      class="form-control @error('email') is-invalid @enderror"
+                      id="email"
+                      placeholder="Tu nombre"
+                      value="{{ $perfil->usuario->email }}"
+                    >
                         
-                        @if( $perfil->imagen )
-                            <div class="mt-4">
-                                <p>Imagen actual:</p>
+                    @error('email')
+                      <span class="invalid-feedback d-block" role="alert">
+                        <strong>{{$message}}</strong>
+                      </span>
+                    @enderror
+                  </div>
+                  <div class="col-md-4 mt-3">
+                    <input type="submit" class="btn btn-primary" value="Actualizar Perfil">
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
     
-                                <img src="/storage/{{$perfil->imagen}}" style="width: 300px">
-                            </div>
-    
-                            <!-- mostrando mensaje de validacion -->
-                            @error('imagen')
-                                <span class="invalid-feedback d-block" role="alert">
-                                    <strong>{{$message}}</strong>
-                                </span>
-                            @enderror
-                        @endif
-                    </div>
-    
-                    <div class="form-group mt-3">
-                        <input type="submit" class="btn btn-primary" value="Actualizar Perfil">
-                    </div>
+                    
   
-                  </form>
-                </div>
-              </div>
-            </div>
-            <!--DATOS DE CONTACTO-->
-            <div class="row py-5">
-              <div class="col-md-2">
-                <span class="h6 sp1">DATOS CONTACTO</span>
-              </div>
-              <div class="col-md-9" id="datosContacto">
-                <div class="row g-3">
-                  <div class="col-md-4">
-                    <label for="staticEmail" class="form-label">EMAIL</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticEmail" value="{{$perfil->usuario->email}}">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="staticTelefono" class="form-label">TELEFONO</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticTelefono" value="{{$perfil->usuario->dcontacto->telefono}}">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="staticTelefono2" class="form-label">TELEFONO OFICINA</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticTelefono2" value="{{$perfil->usuario->dcontacto->telefono_contacto}}">
-                  </div>
-                </div>
-                <div class="row g-3 mt-2">
-                  <div class="col-md-6">
-                    <label for="staticCalle" class="form-label">CALLE</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticCalle" value="{{$perfil->usuario->dcontacto->calle}}">
-                  </div>
-                  <div class="col-md-3">
-                    <label for="staticNumero" class="form-label">NUMERO</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticNumero" value="{{$perfil->usuario->dcontacto->numero}}">
-                  </div>
-                  <div class="col-md-3">
-                    <label for="staticColonia" class="form-label">COLONIA</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticColonia" value="{{$perfil->usuario->dcontacto->colonia}}">
-                  </div>
-                </div>
-                <div class="row g-3 mt-2">
-                  <div class="col-md-4">
-                    <label for="staticMunicipio" class="form-label">MUNICIPIO</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticMunicipio" value="{{$perfil->usuario->dcontacto->municipio}}">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="staticEstado" class="form-label">ESTADO</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticEstado" value="{{$perfil->usuario->dcontacto->estado}}">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="staticCp" class="form-label">C.P.</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticCp" value="{{$perfil->usuario->dcontacto->cp}}">
-                  </div>
-                </div>
-                <div class="row g-3 mt-2">
-                  <div class="col-md-6">
-                    <label for="staticFb" class="form-label">FACEBOOK</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticFb" value="{{$perfil->usuario->dcontacto->fb}}">
-                  </div>
-                  <div class="col-md-6">
-                    <label for="staticTwitter" class="form-label">TWITTER</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticTwitter" value="{{$perfil->usuario->dcontacto->twitter}}">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {{-- DATOS ADMINISTRATIVOS --}}
-          <div class="tab-pane fade" id="pills-dadmin" role="tabpanel" aria-labelledby="pills-dadmin-tab">
-            <div class="row py-5">
-              <div class="col-md-2">
-                <span class="h6 sp1">DATOS ADMINISTRATIVOS</span>
-              </div>
-              <div class="col-md-9" id="datosAdmin">
-                <div class="row g-3">
-                  <div class="col-md-4">
-                    <label for="staticCsp" class="form-label">CLAVE SERVIDOR PUBLICO</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticCsp" value="210021016">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="staticTipoIngreso" class="form-label">TIPO DE INGRESO</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticTipoIngreso" value="">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="statiUsicamm" class="form-label">USICAMM</label>
-                    <input type="text" readonly class="form-control-plaintext " id="statiUsicamm" value="">
-                  </div>
-                </div>
-                <div class="row g-3 mt-2">
-                  <div class="col-md-4">
-                    <label for="staticFGobierno" class="form-label">FECHA INGRESO GOBIERNO</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticFGobierno" value="">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="staticFNivel" class="form-label">FECHA INGRESO NIVEL</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticFNivel" value="">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="staticFInstitucion" class="form-label">FECHA INGRESO INSTITUCION</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticFInstitucion" value="">
-                  </div>
-                </div>
-                <div class="row g-3 mt-2">
-                  <div class="col-md-4">
-                    <label for="staticPuestoF" class="form-label">PUESTO FUNCIONAL</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticPuestoF" value="">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="staticCategoria" class="form-label">CATEGORIA</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticCategoria" value="">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="staticAservicio" class="form-label">AÑOS SERVICIO</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticAservicio" value="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {{-- CUENTA --}}
-          <div class="tab-pane fade" id="pills-cuenta" role="tabpanel" aria-labelledby="pills-cuenta-tab">
-            <div class="row py-5">
-              <div class="col-md-2">
-                <span class="h6 sp1">DATOS USUARIO</span>
-              </div>
-              <div class="col-md-9" id="datosAdmin">
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <label for="staticUsuario" class="form-label">NOMBRE USUARIO</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticUsuario" value="{{$perfil->usuario->name}}">
-                  </div>
-                  <div class="col-md-6">
-                    <label for="staticEmail" class="form-label">EMAIL</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$perfil->usuario->email}}">
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="row py-5">
-              <div class="col-md-2">
-                <span class="h6 sp1">CONTRASEÑA</span>
-              </div>
-              <div class="col-md-9" id="datosAdmin">
-                <div class="row g-3">
-                  <div class="col-md-12">
-                    <label for="Contraseña" class="form-label">CONTRASEÑA</label>
-                    <input type="text" readonly class="form-control-plaintext " id="Contraseña" value="">
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
+      
 
           {{-- ARCHIVOS --}}
           <div class="tab-pane fade" id="pills-archivos" role="tabpanel" aria-labelledby="pills-archivos-tab">Archivos</div>

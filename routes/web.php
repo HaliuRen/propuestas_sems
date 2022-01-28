@@ -23,6 +23,7 @@ Route::get('/',[HomeController::class, 'index'])->name('home');
 
 // Route::get('/perfiles/{perfil}', 'PerfilController@show')->name('admin.perfiles.show');
 Route::get('/perfiles/{perfil}', 'PerfilController@show')->name('perfiles.show');
+Route::get('/perfiles/{perfil}/edit', 'PerfilController@edit')->name('perfiles.show');
 Route::put('perfiles/{perfil}', 'PerfilController@update')->name('perfiles.update');
 
 Auth::routes();
