@@ -49,7 +49,7 @@
   --bs-black-rgb: 0, 0, 0;
   --bs-body-color-rgb: 33, 37, 41;
   --bs-body-bg-rgb: 248, 250, 252;
-  --bs-font-sans-serif: "Poppins", sans-serif;
+  --bs-font-sans-serif: "Nunito", sans-serif;
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-body-font-family: var(--bs-font-sans-serif);
@@ -11286,8 +11286,9 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.content-wrapper {
-  background: #fff !important;
+#containerPerfil, #navPerfil {
+  background-color: #fff;
+  border-radius: 10px;
 }
 
 #navPerfil > div > .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
@@ -11297,13 +11298,9 @@ textarea.form-control-lg {
   border-radius: 0px !important;
 }
 
-#navPerfil {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
 #datosContacto div div label, #datosPersonales div div label, #datosAdmin div div label, .sp1 {
   font-weight: 600;
-  font-size: 12px;
+  font-size: 12px !important;
   color: rgba(0, 0, 0, 0.6);
 }
 
@@ -11313,4 +11310,14 @@ textarea.form-control-lg {
 
 #datosContacto div div input {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#containerPerfil div ul .list-group-item {
+  padding: 0px 20px 0px 0px;
+  color: rgba(0, 0, 0, 0.4);
+  border: none;
+}
+
+#containerPerfil div ul .list-group-item i {
+  color: rgba(0, 0, 0, 0.3);
 }
