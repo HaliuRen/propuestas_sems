@@ -8,29 +8,36 @@
 
 @section('content')
 
-  <div id="containerPerfil" class="container p-3">
+  <div class="container p-4">
 
-    <div class="row p-3">
-      <div class="col-md-12 d-flex flex-row justify-content-center alig-items-center p-3">
+    <div id="containerPerfil" class="row p-4 d-flex align-items-baseline">
+      <div class="col-md-2">
         @if($perfil->imagen)
           <img src="/storage/{{$perfil->imagen}}" class="w-20 rounded-circle" alt="foto perfil" width="150px" height="150px">
         @endif
       </div>
-      <div class="col-md-12 text-center">
+      <div class="col-md-10">
         <h4 class=" text-primary-dark">{{$perfil->usuario->name}}</h4>
-        <span>CSP 210021016</span> 
+        <ul class="list-group list-group-horizontal">
+          <li class="list-group-item"><i class="fas fa-user-circle"></i> Admin </li>
+          <li class="list-group-item"><i class="fas fa-address-card"></i> 210021016 </li>
+          <li class="list-group-item"><i class="fas fa-envelope"></i>  {{$perfil->usuario->email}} </li>
+        </ul>
         {{-- <a href="{{$perfil->usuario->url}}"> visitar Sitio Web</a> --}}
       </div>
     </div>
-
-    <div id="navPerfil" class="row p-3">
+    <div id="navPerfil" class="row p-4">
       <div class="col-md-12">
-        <ul class="nav nav-pills mb-3 nav-fill" id="pills-tab" role="tablist">
+
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="pills-informacion-tab" data-bs-toggle="pill" data-bs-target="#pills-informacion" type="button" role="tab" aria-controls="pills-informacion" aria-selected="true">Información</button>
           </li>
           <li class="nav-item" role="presentation">
             <button class="nav-link" id="pills-dadmin-tab" data-bs-toggle="pill" data-bs-target="#pills-dadmin" type="button" role="tab" aria-controls="pills-dadmin" aria-selected="false">Datos Administrativos</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-nombramientos-tab" data-bs-toggle="pill" data-bs-target="#pills-nombramientos" type="button" role="tab" aria-controls="pills-nombramientos" aria-selected="false">Nombramientos</button>
           </li>
           <li class="nav-item" role="presentation">
             <button class="nav-link" id="pills-cuenta-tab" data-bs-toggle="pill" data-bs-target="#pills-cuenta" type="button" role="tab" aria-controls="pills-cuenta" aria-selected="false">Cuenta</button>
@@ -39,11 +46,77 @@
             <button class="nav-link" id="pills-archivos-tab" data-bs-toggle="pill" data-bs-target="#pills-archivos" type="button" role="tab" aria-controls="pills-archivos" aria-selected="false">Archivos</button>
           </li>
         </ul>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
         <div class="tab-content my-5" id="pills-tabContent">
           {{-- INFORMACION --}}
           <div class="tab-pane fade show active" id="pills-informacion" role="tabpanel" aria-labelledby="pills-informacion-tab">
             <!--DATOS PERSONALES-->
-            <div class="row py-5">
+            <div class="row navPerfil2">
+                <div class="col-md-12 borderB p-5">
+                  <h5 class="perfTitle">Datos Personales</h5>
+                </div>
+               
+                <div class="col-md-12 p-3" id="datosPersonales">
+                  <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label">Email</label>
+                    <div class="col-sm-9">
+                      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label">Email</label>
+                    <div class="col-sm-9">
+                      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              
+              
+              <div class="col-md-9" id="datosPersonales">
+                <div class="row g-3">
+                  <div class="col-md-4">
+                    <label for="staticNombre" class="form-label">NOMBRE</label>
+                    <input type="text" readonly class="form-control-plaintext " id="staticNombre" value="Perla">
+                  </div>
+                  <div class="col-md-4">
+                    <label for="staticApaterno" class="form-label">APELLIDO PATERNO</label>
+                    <input type="text" readonly class="form-control-plaintext" id="staticApaterno" value="Mendoza">
+                  </div>
+                  <div class="col-md-4">
+                    <label for="staticAmaterno" class="form-label">APELLIDO MATERNO</label>
+                    <input type="text" readonly class="form-control-plaintext " id="staticAmaterno" value="Osorio">
+                  </div>
+                </div>
+                <div class="row g-3 mt-2">
+                  <div class="col-md-4">
+                    <label for="staticCurp" class="form-label">CURP</label>
+                    <input type="text" readonly class="form-control-plaintext " id="staticCurp" value="MEOP950706MMCNSR07">
+                  </div>
+                  <div class="col-md-4">
+                    <label for="staticRfc" class="form-label">RFC</label>
+                    <input type="text" readonly class="form-control-plaintext" id="staticRfc" value="MEOP9507061Z3">
+                  </div>
+                  <div class="col-md-4">
+                    <label for="staticSexo" class="form-label">SEXO</label>
+                    <input type="text" readonly class="form-control-plaintext" id="staticSexo" value="Femenino">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row navPerfil2 p-3" >
+              <div class="co-md-6">
+                <h5 class="perfTitle">Datos Personales</h5>
+              </div>
+              <div class="co-md-6">
+            
+              </div>
               <div class="col-md-2">
                 <span class="h6 sp1">DATOS PERSONALES</span>
               </div>
@@ -237,103 +310,4 @@
 
   </div>
 
-  <div id="containerPerfil" class="container p-3">
-
-    <div class="row p-3">
-      <div class="col-md-12 d-flex flex-row justify-content-center alig-items-center p-3">
-        @if($perfil->imagen)
-          <img src="/storage/{{$perfil->imagen}}" class="w-20 rounded-circle" alt="foto perfil" width="150px" height="150px">
-        @endif
-      </div>
-      <div class="col-md-12 text-center">
-        <h4 class=" text-primary-dark">{{$perfil->usuario->name}}</h4>
-        <span>CSP 210021016</span> 
-        {{-- <a href="{{$perfil->usuario->url}}"> visitar Sitio Web</a> --}}
-      </div>
-    </div>
-
-    <div id="navPerfil" class="row p-3">
-      <div class="col-md-12">
-        <ul class="nav nav-pills mb-3 nav-fill" id="pills-tab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="pills-informacion-tab" data-bs-toggle="pill" data-bs-target="#pills-informacion" type="button" role="tab" aria-controls="pills-informacion" aria-selected="true">Información</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pills-dadmin-tab" data-bs-toggle="pill" data-bs-target="#pills-dadmin" type="button" role="tab" aria-controls="pills-dadmin" aria-selected="false">Datos Administrativos</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pills-cuenta-tab" data-bs-toggle="pill" data-bs-target="#pills-cuenta" type="button" role="tab" aria-controls="pills-cuenta" aria-selected="false">Cuenta</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pills-archivos-tab" data-bs-toggle="pill" data-bs-target="#pills-archivos" type="button" role="tab" aria-controls="pills-archivos" aria-selected="false">Archivos</button>
-          </li>
-        </ul>
-        <div class="tab-content my-5" id="pills-tabContent">
-          {{-- INFORMACION --}}
-          <div class="tab-pane fade show active" id="pills-informacion" role="tabpanel" aria-labelledby="pills-informacion-tab">
-            <!--DATOS PERSONALES-->
-            <div class="row py-5">
-              <div class="col-md-2">
-                <span class="h6 sp1">DATOS PERSONALES</span>
-              </div>
-              <div class="col-md-9" id="datosPersonales">
-                <form 
-                  action="{{ route('perfiles.update', ['perfil' => $perfil->id]) }}"
-                  method="POST"
-                  enctype="multipart/form-data"
-                >
-                  @csrf
-                  @method('PUT')
-
-                  <div class="col-md-4">
-                    <label for="Email" class="form-label">EMAIL</label>
-                    <input 
-                      type="text" 
-                      name="email"
-                      class="form-control @error('email') is-invalid @enderror"
-                      id="email"
-                      placeholder="Tu nombre"
-                      value="{{ $perfil->usuario->email }}"
-                    >
-                        
-                    @error('email')
-                      <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{$message}}</strong>
-                      </span>
-                    @enderror
-                  </div>
-                  <div class="col-md-4 mt-3">
-                    <input type="submit" class="btn btn-primary" value="Actualizar Perfil">
-                </div>
-                </form>
-              </div>
-            </div>
-          </div>
-    
-                    
-  
-      
-
-          {{-- ARCHIVOS --}}
-          <div class="tab-pane fade" id="pills-archivos" role="tabpanel" aria-labelledby="pills-archivos-tab">Archivos</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-
-
-
-
 @stop
-
-
-
-
-
-
-  
-  

@@ -1,22 +1,37 @@
-.content-wrapper {
-    background: #fff!important;;
+// .content-wrapper {
+//     background: #fff!important;;
+// }
+
+#containerPerfil{
+    background-color: #fff;
+    border-radius: 10px 0px;
+}
+#navPerfil{
+    background-color: #fff;
+    border-radius: 0px 10px;
 }
 
+.navPerfil2{
+    background-color: #fff;
+}
+
+.borderB{
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
 
 //Tabs Perfil
+
 #navPerfil > div > .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #007bff!important;
     background-color: transparent!important;
     border-bottom: 2px solid #007bff !important;
     border-radius: 0px!important;
 }
-#navPerfil{
-    border:1px solid rgba(0,0,0,0.1);
-}
+
 
 #datosContacto div div label,#datosPersonales div div label,#datosAdmin div div label, .sp1 {
     font-weight: 600;
-    font-size: 12px;
+    font-size: 12px!important;
     color: rgba(0,0,0,0.6);
 }
 .sp1{
@@ -25,3 +40,13 @@
 #datosContacto div div input{ //, #datosPersonales div div input{
     border-bottom: 1px solid rgba(0,0,0,0.2);
 }
+
+// List Icons
+#containerPerfil div ul .list-group-item {
+    padding: 0px 20px 0px 0px;
+    color: rgba(0, 0, 0, 0.4);
+    border: none;
+}
+#containerPerfil div ul .list-group-item i{
+    color: rgba(0, 0, 0, 0.3);
+} 

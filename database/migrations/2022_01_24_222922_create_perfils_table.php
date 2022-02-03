@@ -19,7 +19,11 @@ class CreatePerfilsTable extends Migration
         Schema::create('perfils', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
-            $table->text('biografia')->nullable();
+            $table->string('rfc')->nullable();
+            $table->string('nombre')->nullable();
+            $table->string('apaterno')->nullable();
+            $table->string('amaterno')->nullable();
+            $table->string('sexo')->nullable();
             $table->string('imagen')->nullable();
             $table->timestamps();
         });
