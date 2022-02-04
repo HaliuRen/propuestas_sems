@@ -17,7 +17,7 @@ class CreateDcontactosTable extends Migration
             $table->id();
             $table->string('telefono')->nullable();
             $table->string('telefono_contacto')->nullable();
-            $table->string('estado')->nullable();
+            $table->foreignId('estado_id')->references('id')->on('estados')->comment('Estados');
             $table->string('municipio')->nullable();
             $table->string('colonia')->nullable();
             $table->string('calle')->nullable();

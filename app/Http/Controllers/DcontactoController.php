@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Estados;
 use App\Models\Dcontacto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DcontactoController extends Controller
 {
@@ -64,7 +66,9 @@ class DcontactoController extends Controller
      */
     public function edit(Dcontacto $dcontacto)
     {
-        return view('perfiles.show', compact('dcontacto'));
+        //obteniendo las categorias con modelo
+        $estados = Estados::all(['id', 'nombre']);
+        return view('perfiles.edit', compact('estados', 'dcontacto'));
     }
 
     /**
@@ -77,7 +81,7 @@ class DcontactoController extends Controller
     public function update(Request $request, Dcontacto $dcontacto)
     {
        //Validar
-        $data = request()->validate([
+        $data = $request()->validate([
             
             'telefono' => 'required',
             'telefono_contacto' => 'required',
@@ -92,24 +96,26 @@ class DcontactoController extends Controller
         ]);
 
         //Asignar datos
-        
-        auth()->user()->telefono = $data['telefono'];
-        auth()->user()->telefono_contacto = $data['telefono_contacto'];
-        auth()->user()->estado = $data['estado'];
-        auth()->user()->colonia = $data['colonia'];
-        auth()->user()->calle = $data['calle'];
-        auth()->user()->numero = $data['numero'];
-        auth()->user()->cp = $data['municipio'];
-        auth()->user()->fb = $data['fb'];
-        auth()->user()->twitter = $data['twitter'];
-        auth()->user()->save();
+        $dcontacto->telefono = $data['telefono'];
+        $dcontacto->telefono_contacto = $data['telefono_contacto'];
+        $dcontacto->estado_id = $data['estado'];
+        $dcontacto->municipio = $data['municipio'];
+        $dcontacto->colonia = $data['colonia'];
+        $dcontacto->calle = $data['calle'];
+        $dcontacto->numero = $data['numero'];
+        $dcontacto->cp = $data['cp'];
+        $dcontacto->fb = $data['fb'];
+        $dcontacto->twitter = $data['twitter'];
+
 
         // Guardar informacion y asiganar contacto
-        auth()->user()->dcontacto()->update(array_merge(
+        auth()->user()->dcontacto()->update(
             $data
-        ));
+        );
 
-        return redirect()->action('PerfilController@show');
+        $dcontacto->save();
+
+        return redirect()->action('PerfilController@show',['perfil' => Auth::user()->id]);
     }
 
     /**

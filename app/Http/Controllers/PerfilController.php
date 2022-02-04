@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Perfil;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 
 class PerfilController extends Controller
@@ -58,7 +59,7 @@ class PerfilController extends Controller
      */
     public function edit(Perfil $perfil)
     {
-        return view('perfiles.show', compact('perfil'));
+        return view('perfiles.edit', compact('perfil'));
     }
 
     /**
@@ -70,14 +71,17 @@ class PerfilController extends Controller
      */
     public function update(Request $request, Perfil $perfil)
     {
-        // Validar
+
+        // Validar entrada de datos
         $data = request()->validate([
+            'rfc' => 'required',
             'nombre' => 'required',
-            'url' => 'required',
-            'biografia' => 'required'
+            'amaterno' => 'required',
+            'apaterno' => 'required',
+            'sexo' => 'required'
         ]);
 
-        // Si el usuario sube una imagen
+        // Si el usuario sube imagen
         if ($request['imagen']) {
             // obtener la ruta de la imagen
             $ruta_imagen = $request['imagen']->store('upload-perfiles','public');
@@ -90,28 +94,16 @@ class PerfilController extends Controller
             $array_imagen = ['imagen' => $ruta_imagen];
         } 
 
-        // Asignar nombre y URL
-        auth()->user()->url = $data['url'];
-        auth()->user()->name = $data['nombre'];
-        auth()->user()->save();
-
-        // Eliminar url y name de $data
-        unset($data['url']);
-        unset($data['nombre']);
-
-
         // Guardar información
-        // Asignar biografia e imagen
-        // auth()->user()->perfil()->update([
-        //     'biografia' => $data['biografia']
-        // ]);
-         auth()->user()->perfil()->update( array_merge(
+        // Asignar los datos
+        auth()->user()->perfil()->update( array_merge(
             $data,
             $array_imagen ?? []
-         ));
-        
+        ));
+
         // Redireccionar
-        return redirect()->action('HomeController@index');
+        return redirect()->action('PerfilController@show',['perfil' => Auth::user()->id]);
+       
     }
 
     /**

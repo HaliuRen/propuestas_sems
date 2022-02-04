@@ -8,9 +8,10 @@
 
 @section('content')
 
+
   <div class="container p-4">
     {{-- Perfil --}}
-    <div id="containerPerfil" class="row p-4 d-flex align-items-baseline">
+    <div id="containerPerfil" class="row px-4 pt-4  d-flex align-items-baseline">
       <div class="col-md-2">
         @if($perfil->imagen)
           <img src="/storage/{{$perfil->imagen}}" class="w-20 rounded-circle" alt="foto perfil" width="150px" height="150px">
@@ -59,15 +60,16 @@
           <div class="tab-pane fade show active" id="pills-informacion" role="tabpanel" aria-labelledby="pills-informacion-tab">
             <!--DATOS PERSONALES-->
             <div class="row navPerfil2">
-              <div class="col-md-12 borderB px-4 pt-4 pb-3">
+              <div class="col-md-12 borderB px-4 pt-4 pb-3 d-flex justify-content-between">
                 <h5 class="perfTitle">Datos Personales</h5>
+                <a class="btn btn-primary" href="{{ route('perfiles.edit', ['perfil' => $perfil->id]) }}" role="button">Editar Perfil</a>
               </div>
                
               <div class="col-md-12 p-4" id="datosPersonales">
                 <div class="mb-3 row">
                   <label for="staticNombre" class="col-sm-3 col-form-label">Nombre Completo:</label>
                   <div class="col-sm-9">
-                    <input type="text" readonly class="form-control-plaintext" id="staticNombre" value="Perla Mendoza Osorio">
+                    <input type="text" readonly class="form-control-plaintext" id="staticNombre" value="{{$perfil->nombre}} {{$perfil->apaterno}} {{$perfil->amaterno}}">
                   </div>
                 </div>
                 <div class="mb-3 row">
@@ -79,13 +81,13 @@
                 <div class="mb-3 row">
                   <label for="staticRfc" class="col-sm-3 col-form-label">RFC:</label>
                   <div class="col-sm-9">
-                    <input type="text" readonly class="form-control-plaintext" id="staticRfc" value="">
+                    <input type="text" readonly class="form-control-plaintext" id="staticRfc" value="{{$perfil->rfc}}">
                   </div>
                 </div>
                 <div class="mb-3 row">
                   <label for="staticSexo" class="col-sm-3 col-form-label">Sexo:</label>
                   <div class="col-sm-9">
-                    <input type="text" readonly class="form-control-plaintext" id="staticSexo" value="">
+                    <input type="text" readonly class="form-control-plaintext" id="staticSexo" value="{{$perfil->sexo}}">
                   </div>
                 </div>
               </div>
@@ -198,7 +200,7 @@
                   </div>
                 </div>
                 <div class="mb-3 row">
-                  <label for="staticIngresoGob" class="col-sm-3 col-form-label">Fecha de ingreso a gobierno:</label>
+                  <label for="staticIngresoGob" class="col-sm-3 col-form-label">Fecha de ingreso a nivel:</label>
                   <div class="col-sm-9">
                     <input type="text" readonly class="form-control-plaintext" id="staticIngresoGob" value="">
                   </div>
