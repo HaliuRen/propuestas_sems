@@ -9,7 +9,7 @@
 @section('content')
 
   <div class="container p-4">
-
+    {{-- Perfil --}}
     <div id="containerPerfil" class="row p-4 d-flex align-items-baseline">
       <div class="col-md-2">
         @if($perfil->imagen)
@@ -26,9 +26,10 @@
         {{-- <a href="{{$perfil->usuario->url}}"> visitar Sitio Web</a> --}}
       </div>
     </div>
+
+    {{-- Menu perfil  --}}
     <div id="navPerfil" class="row p-4">
       <div class="col-md-12">
-
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="pills-informacion-tab" data-bs-toggle="pill" data-bs-target="#pills-informacion" type="button" role="tab" aria-controls="pills-informacion" aria-selected="true">Información</button>
@@ -46,263 +47,175 @@
             <button class="nav-link" id="pills-archivos-tab" data-bs-toggle="pill" data-bs-target="#pills-archivos" type="button" role="tab" aria-controls="pills-archivos" aria-selected="false">Archivos</button>
           </li>
         </ul>
-
       </div>
     </div>
-
+  
+    {{-- contenido --}}
     <div class="row">
       <div class="col-md-12">
-        <div class="tab-content my-5" id="pills-tabContent">
+        <div class="tab-content my-4" id="pills-tabContent">
+
           {{-- INFORMACION --}}
           <div class="tab-pane fade show active" id="pills-informacion" role="tabpanel" aria-labelledby="pills-informacion-tab">
             <!--DATOS PERSONALES-->
             <div class="row navPerfil2">
-                <div class="col-md-12 borderB p-5">
-                  <h5 class="perfTitle">Datos Personales</h5>
-                </div>
-               
-                <div class="col-md-12 p-3" id="datosPersonales">
-                  <div class="mb-3 row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">Email</label>
-                    <div class="col-sm-9">
-                      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
-                    </div>
-                  </div>
-                  <div class="mb-3 row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">Email</label>
-                    <div class="col-sm-9">
-                      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-              
-              <div class="col-md-9" id="datosPersonales">
-                <div class="row g-3">
-                  <div class="col-md-4">
-                    <label for="staticNombre" class="form-label">NOMBRE</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticNombre" value="Perla">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="staticApaterno" class="form-label">APELLIDO PATERNO</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticApaterno" value="Mendoza">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="staticAmaterno" class="form-label">APELLIDO MATERNO</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticAmaterno" value="Osorio">
-                  </div>
-                </div>
-                <div class="row g-3 mt-2">
-                  <div class="col-md-4">
-                    <label for="staticCurp" class="form-label">CURP</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticCurp" value="MEOP950706MMCNSR07">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="staticRfc" class="form-label">RFC</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticRfc" value="MEOP9507061Z3">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="staticSexo" class="form-label">SEXO</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticSexo" value="Femenino">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row navPerfil2 p-3" >
-              <div class="co-md-6">
+              <div class="col-md-12 borderB px-4 pt-4 pb-3">
                 <h5 class="perfTitle">Datos Personales</h5>
               </div>
-              <div class="co-md-6">
-            
-              </div>
-              <div class="col-md-2">
-                <span class="h6 sp1">DATOS PERSONALES</span>
-              </div>
-              <div class="col-md-9" id="datosPersonales">
-                <div class="row g-3">
-                  <div class="col-md-4">
-                    <label for="staticNombre" class="form-label">NOMBRE</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticNombre" value="Perla">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="staticApaterno" class="form-label">APELLIDO PATERNO</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticApaterno" value="Mendoza">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="staticAmaterno" class="form-label">APELLIDO MATERNO</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticAmaterno" value="Osorio">
+               
+              <div class="col-md-12 p-4" id="datosPersonales">
+                <div class="mb-3 row">
+                  <label for="staticNombre" class="col-sm-3 col-form-label">Nombre Completo:</label>
+                  <div class="col-sm-9">
+                    <input type="text" readonly class="form-control-plaintext" id="staticNombre" value="Perla Mendoza Osorio">
                   </div>
                 </div>
-                <div class="row g-3 mt-2">
-                  <div class="col-md-4">
-                    <label for="staticCurp" class="form-label">CURP</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticCurp" value="MEOP950706MMCNSR07">
+                <div class="mb-3 row">
+                  <label for="staticCurp" class="col-sm-3 col-form-label">CURP:</label>
+                  <div class="col-sm-9">
+                    <input type="text" readonly class="form-control-plaintext" id="staticCurp" value="{{$perfil->usuario->username}}">
                   </div>
-                  <div class="col-md-4">
-                    <label for="staticRfc" class="form-label">RFC</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticRfc" value="MEOP9507061Z3">
+                </div>
+                <div class="mb-3 row">
+                  <label for="staticRfc" class="col-sm-3 col-form-label">RFC:</label>
+                  <div class="col-sm-9">
+                    <input type="text" readonly class="form-control-plaintext" id="staticRfc" value="">
                   </div>
-                  <div class="col-md-4">
-                    <label for="staticSexo" class="form-label">SEXO</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticSexo" value="Femenino">
+                </div>
+                <div class="mb-3 row">
+                  <label for="staticSexo" class="col-sm-3 col-form-label">Sexo:</label>
+                  <div class="col-sm-9">
+                    <input type="text" readonly class="form-control-plaintext" id="staticSexo" value="">
                   </div>
                 </div>
               </div>
+
             </div>
-            <!--DATOS DE CONTACTO-->
-            <div class="row py-5">
-              <div class="col-md-2">
-                <span class="h6 sp1">DATOS CONTACTO</span>
+
+            <!--DATOS CONTACTO-->
+            <div class="row navPerfil2 mt-4">
+              <div class="col-md-12 borderB px-4 pt-4 pb-3">
+                <h5 class="perfTitle">Datos de Contacto</h5>
               </div>
-              <div class="col-md-9" id="datosContacto">
-                <div class="row g-3">
-                  <div class="col-md-4">
-                    <label for="staticEmail" class="form-label">EMAIL</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticEmail" value="{{$perfil->usuario->email}}">
+               
+              <div class="col-md-12 p-4" id="datosContacto">
+                <div class="mb-3 row">
+                  <label for="staticEmail" class="col-sm-3 col-form-label">Email:</label>
+                  <div class="col-sm-9">
+                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$perfil->usuario->dcontacto->email}}">
                   </div>
-                  <div class="col-md-4">
-                    <label for="staticTelefono" class="form-label">TELEFONO</label>
+                </div>
+                <div class="mb-3 row">
+                  <label for="staticTelefono" class="col-sm-3 col-form-label">Telefono:</label>
+                  <div class="col-sm-9">
                     <input type="text" readonly class="form-control-plaintext" id="staticTelefono" value="{{$perfil->usuario->dcontacto->telefono}}">
                   </div>
-                  <div class="col-md-4">
-                    <label for="staticTelefono2" class="form-label">TELEFONO OFICINA</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticTelefono2" value="{{$perfil->usuario->dcontacto->telefono_contacto}}">
+                </div>
+                <div class="mb-3 row">
+                  <label for="staticTelefono2" class="col-sm-3 col-form-label">Telefono Contacto:</label>
+                  <div class="col-sm-9">
+                    <input type="text" readonly class="form-control-plaintext" id="staticTelefono2" value="{{$perfil->usuario->dcontacto->telefono_contacto}}">
                   </div>
                 </div>
-                <div class="row g-3 mt-2">
-                  <div class="col-md-6">
-                    <label for="staticCalle" class="form-label">CALLE</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticCalle" value="{{$perfil->usuario->dcontacto->calle}}">
+                <div class="mb-3 row">
+                  <label for="staticDireccion" class="col-sm-3 col-form-label">Dirección:</label>
+                  <div class="col-sm-9">
+                    <input type="text" readonly class="form-control-plaintext" id="staticDireccion" value="{{$perfil->usuario->dcontacto->calle}} {{$perfil->usuario->dcontacto->numero}}">
                   </div>
-                  <div class="col-md-3">
-                    <label for="staticNumero" class="form-label">NUMERO</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticNumero" value="{{$perfil->usuario->dcontacto->numero}}">
-                  </div>
-                  <div class="col-md-3">
-                    <label for="staticColonia" class="form-label">COLONIA</label>
+                </div>
+                <div class="mb-3 row">
+                  <label for="staticColonia" class="col-sm-3 col-form-label">Colonia:</label>
+                  <div class="col-sm-9">
                     <input type="text" readonly class="form-control-plaintext" id="staticColonia" value="{{$perfil->usuario->dcontacto->colonia}}">
                   </div>
                 </div>
-                <div class="row g-3 mt-2">
-                  <div class="col-md-4">
-                    <label for="staticMunicipio" class="form-label">MUNICIPIO</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticMunicipio" value="{{$perfil->usuario->dcontacto->municipio}}">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="staticEstado" class="form-label">ESTADO</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticEstado" value="{{$perfil->usuario->dcontacto->estado}}">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="staticCp" class="form-label">C.P.</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticCp" value="{{$perfil->usuario->dcontacto->cp}}">
+                <div class="mb-3 row">
+                  <label for="staticMunicipio" class="col-sm-3 col-form-label">Municipio:</label>
+                  <div class="col-sm-9">
+                    <input type="text" readonly class="form-control-plaintext" id="staticMunicipio" value="{{$perfil->usuario->dcontacto->municipio}}">
                   </div>
                 </div>
-                <div class="row g-3 mt-2">
-                  <div class="col-md-6">
-                    <label for="staticFb" class="form-label">FACEBOOK</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticFb" value="{{$perfil->usuario->dcontacto->fb}}">
+                <div class="mb-3 row">
+                  <label for="staticEstado" class="col-sm-3 col-form-label">Estado:</label>
+                  <div class="col-sm-9">
+                    <input type="text" readonly class="form-control-plaintext" id="staticEstado" value="{{$perfil->usuario->dcontacto->estado}}">
                   </div>
-                  <div class="col-md-6">
-                    <label for="staticTwitter" class="form-label">TWITTER</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticTwitter" value="{{$perfil->usuario->dcontacto->twitter}}">
+                </div>
+                <div class="mb-3 row">
+                  <label for="staticcp" class="col-sm-3 col-form-label">C.P.:</label>
+                  <div class="col-sm-9">
+                    <input type="text" readonly class="form-control-plaintext" id="staticcp" value="{{$perfil->usuario->dcontacto->cp}}">
+                  </div>
+                </div>
+                <div class="mb-3 row">
+                  <label for="staticfb" class="col-sm-3 col-form-label">Facebook:</label>
+                  <div class="col-sm-9">
+                    <input type="text" readonly class="form-control-plaintext" id="staticfb" value="{{$perfil->usuario->dcontacto->fb}}">
+                  </div>
+                </div>
+                <div class="mb-3 row">
+                  <label for="statictwitter" class="col-sm-3 col-form-label">Twitter:</label>
+                  <div class="col-sm-9">
+                    <input type="text" readonly class="form-control-plaintext" id="statictwitter" value="{{$perfil->usuario->dcontacto->twitter}}">
                   </div>
                 </div>
               </div>
             </div>
+
           </div>
 
           {{-- DATOS ADMINISTRATIVOS --}}
-          <div class="tab-pane fade" id="pills-dadmin" role="tabpanel" aria-labelledby="pills-dadmin-tab">
-            <div class="row py-5">
-              <div class="col-md-2">
-                <span class="h6 sp1">DATOS ADMINISTRATIVOS</span>
+          <div class="tab-pane fade" id="pills-dadmin" role="tabpanel" aria-labelledby="pills-archivos-tab">
+            <!--DATOS PERSONALES-->
+            <div class="row navPerfil2">
+              <div class="col-md-12 borderB px-4 pt-4 pb-3">
+                <h5 class="perfTitle">Datos Administrativos</h5>
               </div>
-              <div class="col-md-9" id="datosAdmin">
-                <div class="row g-3">
-                  <div class="col-md-4">
-                    <label for="staticCsp" class="form-label">CLAVE SERVIDOR PUBLICO</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticCsp" value="210021016">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="staticTipoIngreso" class="form-label">TIPO DE INGRESO</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticTipoIngreso" value="">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="statiUsicamm" class="form-label">USICAMM</label>
-                    <input type="text" readonly class="form-control-plaintext " id="statiUsicamm" value="">
+               
+              <div class="col-md-12 p-4" id="datosPersonales">
+                <div class="mb-3 row">
+                  <label for="staticCsp" class="col-sm-3 col-form-label">Clave Servidor Publico:</label>
+                  <div class="col-sm-9">
+                    <input type="text" readonly class="form-control-plaintext" id="staticCsp" value="210021016">
                   </div>
                 </div>
-                <div class="row g-3 mt-2">
-                  <div class="col-md-4">
-                    <label for="staticFGobierno" class="form-label">FECHA INGRESO GOBIERNO</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticFGobierno" value="">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="staticFNivel" class="form-label">FECHA INGRESO NIVEL</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticFNivel" value="">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="staticFInstitucion" class="form-label">FECHA INGRESO INSTITUCION</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticFInstitucion" value="">
+                <div class="mb-3 row">
+                  <label for="staticIngreso" class="col-sm-3 col-form-label">Tipo Ingreso:</label>
+                  <div class="col-sm-9">
+                    <input type="text" readonly class="form-control-plaintext" id="staticIngreso" value="">
                   </div>
                 </div>
-                <div class="row g-3 mt-2">
-                  <div class="col-md-4">
-                    <label for="staticPuestoF" class="form-label">PUESTO FUNCIONAL</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticPuestoF" value="">
+                <div class="mb-3 row">
+                  <label for="staticUsicamm" class="col-sm-3 col-form-label">Folio USICAMM:</label>
+                  <div class="col-sm-9">
+                    <input type="text" readonly class="form-control-plaintext" id="staticUsicamm" value="">
                   </div>
-                  <div class="col-md-4">
-                    <label for="staticCategoria" class="form-label">CATEGORIA</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticCategoria" value="">
+                </div>
+                <div class="mb-3 row">
+                  <label for="staticIngresoGob" class="col-sm-3 col-form-label">Fecha de ingreso a gobierno:</label>
+                  <div class="col-sm-9">
+                    <input type="text" readonly class="form-control-plaintext" id="staticIngresoGob" value="">
                   </div>
-                  <div class="col-md-4">
-                    <label for="staticAservicio" class="form-label">AÑOS SERVICIO</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticAservicio" value="">
+                </div>
+                <div class="mb-3 row">
+                  <label for="staticIngresoGob" class="col-sm-3 col-form-label">Fecha de ingreso a gobierno:</label>
+                  <div class="col-sm-9">
+                    <input type="text" readonly class="form-control-plaintext" id="staticIngresoGob" value="">
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
+
+          {{-- NOMBRAMIENTOS --}}
+          <div class="tab-pane fade" id="pills-nombramientos" role="tabpanel" aria-labelledby="pills-archivos-tab">N</div>
+          
+              
+          {{-- CUENTA --}}
+          <div class="tab-pane fade" id="pills-cuenta" role="tabpanel" aria-labelledby="pills-archivos-tab">C</div>
 
           {{-- CUENTA --}}
-          <div class="tab-pane fade" id="pills-cuenta" role="tabpanel" aria-labelledby="pills-cuenta-tab">
-            <div class="row py-5">
-              <div class="col-md-2">
-                <span class="h6 sp1">DATOS USUARIO</span>
-              </div>
-              <div class="col-md-9" id="datosAdmin">
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <label for="staticUsuario" class="form-label">NOMBRE USUARIO</label>
-                    <input type="text" readonly class="form-control-plaintext " id="staticUsuario" value="{{$perfil->usuario->name}}">
-                  </div>
-                  <div class="col-md-6">
-                    <label for="staticEmail" class="form-label">EMAIL</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$perfil->usuario->email}}">
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="row py-5">
-              <div class="col-md-2">
-                <span class="h6 sp1">CONTRASEÑA</span>
-              </div>
-              <div class="col-md-9" id="datosAdmin">
-                <div class="row g-3">
-                  <div class="col-md-12">
-                    <label for="Contraseña" class="form-label">CONTRASEÑA</label>
-                    <input type="text" readonly class="form-control-plaintext " id="Contraseña" value="">
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          {{-- ARCHIVOS --}}
           <div class="tab-pane fade" id="pills-archivos" role="tabpanel" aria-labelledby="pills-archivos-tab">Archivos</div>
         </div>
       </div>
