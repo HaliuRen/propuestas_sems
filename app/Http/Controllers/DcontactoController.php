@@ -66,9 +66,9 @@ class DcontactoController extends Controller
      */
     public function edit(Dcontacto $dcontacto)
     {
-        //obteniendo las categorias con modelo
-        $estados = Estados::all(['id', 'nombre']);
-        return view('perfiles.edit', compact('estados', 'dcontacto'));
+        // //obteniendo las categorias con modelo
+        // // // $estados = Estados::all(['id', 'nombre']);
+        // return view('perfiles.edit', compact('dcontacto'));
     }
 
     /**
@@ -80,42 +80,34 @@ class DcontactoController extends Controller
      */
     public function update(Request $request, Dcontacto $dcontacto)
     {
-       //Validar
-        $data = $request()->validate([
+    //    // Validar entrada de datos
+        // $data = request()->validate([
+        //     //tabla contacto
+        //     'email' => 'required',
+        //     'telefono' => 'required',
+        //     'telefono_contacto' => 'required',
+        //     'estado' => 'required',
+        //     'municipio' => 'required',
+        //     'colonia' => 'required',
+        //     'calle' => 'required',
+        //     'numero' => 'required',
+        //     'cp' => 'required',
+        //     'fb' => 'required',
+        //     'twitter' => 'required'
+        // ]);
+
+       
+        // // Guardar información
+        // // Asignar los datos
+
+
+        // auth()->user()->perfil()->update( 
+        //     $data,
             
-            'telefono' => 'required',
-            'telefono_contacto' => 'required',
-            'estado' => 'required',
-            'municipio' => 'required',
-            'colonia' => 'required',
-            'calle' => 'required',
-            'numero' => 'required',
-            'cp' => 'required',
-            'fb' => 'required',
-            'twitter' => 'required'
-        ]);
+        // );
 
-        //Asignar datos
-        $dcontacto->telefono = $data['telefono'];
-        $dcontacto->telefono_contacto = $data['telefono_contacto'];
-        $dcontacto->estado_id = $data['estado'];
-        $dcontacto->municipio = $data['municipio'];
-        $dcontacto->colonia = $data['colonia'];
-        $dcontacto->calle = $data['calle'];
-        $dcontacto->numero = $data['numero'];
-        $dcontacto->cp = $data['cp'];
-        $dcontacto->fb = $data['fb'];
-        $dcontacto->twitter = $data['twitter'];
-
-
-        // Guardar informacion y asiganar contacto
-        auth()->user()->dcontacto()->update(
-            $data
-        );
-
-        $dcontacto->save();
-
-        return redirect()->action('PerfilController@show',['perfil' => Auth::user()->id]);
+        // // Redireccionar
+        // return redirect()->action('PerfilController@show',['perfil' => Auth::user()->id]);
     }
 
     /**

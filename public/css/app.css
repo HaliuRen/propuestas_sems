@@ -1,4 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
 @charset "UTF-8";
 /*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
@@ -11288,12 +11287,12 @@ textarea.form-control-lg {
 }
 #containerPerfil {
   background-color: #fff;
-  border-radius: 10px 0px;
+  border-radius: 10px 10px 0px 0px;
 }
 
 #navPerfil {
   background-color: #fff;
-  border-radius: 0px 10px;
+  border-radius: 0px 0px 10px 10px;
 }
 
 .navPerfil2 {
@@ -11302,11 +11301,6 @@ textarea.form-control-lg {
 
 .borderB {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-#containerPerfil, #navPerfil {
-  background-color: #fff;
-  border-radius: 10px;
 }
 
 #navPerfil > div > .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
@@ -11326,10 +11320,6 @@ textarea.form-control-lg {
   color: #222 !important;
 }
 
-#datosContacto div div input {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-
 #containerPerfil div ul .list-group-item {
   padding: 0px 20px 0px 0px;
   color: rgba(0, 0, 0, 0.4);
@@ -11338,4 +11328,29 @@ textarea.form-control-lg {
 
 #containerPerfil div ul .list-group-item i {
   color: rgba(0, 0, 0, 0.3);
+}
+
+.containerBread nav ol {
+  background-color: #fff;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  padding-right: 1.2rem;
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.breadcrumb-item a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 600;
+}
+
+.breadcrumb-item a:hover {
+  color: #007bff;
+}
+
+.breadcrumb-item.active {
+  color: rgba(0, 0, 0, 0.8);
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
 }

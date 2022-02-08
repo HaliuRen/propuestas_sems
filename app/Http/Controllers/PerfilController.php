@@ -78,7 +78,19 @@ class PerfilController extends Controller
             'nombre' => 'required',
             'amaterno' => 'required',
             'apaterno' => 'required',
-            'sexo' => 'required'
+            'sexo' => 'required',
+            //tabla contacto
+            'email' => 'required',
+            'telefono' => 'required',
+            'telefono_contacto' => 'required',
+            'estado' => 'required',
+            'municipio' => 'required',
+            'colonia' => 'required',
+            'calle' => 'required',
+            'numero' => 'required',
+            'cp' => 'required',
+            'fb' => 'required',
+            'twitter' => 'required'
         ]);
 
         // Si el usuario sube imagen
@@ -96,6 +108,34 @@ class PerfilController extends Controller
 
         // Guardar información
         // Asignar los datos
+
+        
+        auth()->user()->dcontacto->email = $data['email'];
+        auth()->user()->dcontacto->telefono = $data['telefono'];
+        auth()->user()->dcontacto->telefono_contacto = $data['telefono_contacto'];
+        auth()->user()->dcontacto->estado = $data['estado'];
+        auth()->user()->dcontacto->municipio = $data['municipio'];
+        auth()->user()->dcontacto->colonia = $data['colonia'];
+        auth()->user()->dcontacto->calle = $data['calle'];
+        auth()->user()->dcontacto->numero = $data['numero'];
+        auth()->user()->dcontacto->cp = $data['cp'];
+        auth()->user()->dcontacto->fb = $data['fb'];
+        auth()->user()->dcontacto->twitter = $data['twitter'];
+        auth()->user()->dcontacto->save();
+
+        // Eliminar url y name de $data
+        unset($data['email']);
+        unset($data['telefono']);
+        unset($data['telefono_contacto']);
+        unset($data['estado']);
+        unset($data['municipio']);
+        unset($data['colonia']);
+        unset($data['calle']);
+        unset($data['numero']);
+        unset($data['cp']);
+        unset($data['fb']);
+        unset($data['twitter']);
+
         auth()->user()->perfil()->update( array_merge(
             $data,
             $array_imagen ?? []

@@ -10,7 +10,7 @@ class Dcontacto extends Model
 
     //campos que se agregaran
     protected $fillable = [
-        'email', 'telefono','telefono_contacto',  'estado_id', 'municipio' , 'colonia', 'calle', 'numero', 'cp', 'fb', 'twiteer'
+        'email', 'telefono','telefono_contacto',  'estado', 'municipio' , 'colonia', 'calle', 'numero', 'cp', 'fb', 'twitter'
     ];
 
    // Obtiene el estado via FK

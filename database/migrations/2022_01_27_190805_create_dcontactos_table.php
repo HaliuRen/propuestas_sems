@@ -15,9 +15,10 @@ class CreateDcontactosTable extends Migration
     {
         Schema::create('dcontactos', function (Blueprint $table) {
             $table->id();
+            $table->string('email')->nullable();
             $table->string('telefono')->nullable();
             $table->string('telefono_contacto')->nullable();
-            $table->foreignId('estado_id')->references('id')->on('estados')->comment('Estados');
+            $table->string('estado')->nullable();
             $table->string('municipio')->nullable();
             $table->string('colonia')->nullable();
             $table->string('calle')->nullable();
