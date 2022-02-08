@@ -12,6 +12,11 @@
   <div class="container p-4">
     {{-- Perfil --}}
     <div id="containerPerfil" class="row px-4 pt-4  d-flex align-items-baseline">
+
+  <div class="container p-3">
+
+    <div id="containerPerfil" class="row p-3 d-flex align-items-baseline">
+
       <div class="col-md-2">
         @if($perfil->imagen)
           <img src="/storage/{{$perfil->imagen}}" class="w-20 rounded-circle" alt="foto perfil" width="150px" height="150px">
@@ -32,6 +37,12 @@
     <div id="navPerfil" class="row p-4">
       <div class="col-md-12">
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+
+    <div id="navPerfil" class="row p-3 mt-3">
+      <div class="col-md-12">
+
+        <ul class="nav nav-pills mb-3 nav-fill" id="pills-tab" role="tablist">
+
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="pills-informacion-tab" data-bs-toggle="pill" data-bs-target="#pills-informacion" type="button" role="tab" aria-controls="pills-informacion" aria-selected="true">Información</button>
           </li>
@@ -48,6 +59,7 @@
             <button class="nav-link" id="pills-archivos-tab" data-bs-toggle="pill" data-bs-target="#pills-archivos" type="button" role="tab" aria-controls="pills-archivos" aria-selected="false">Archivos</button>
           </li>
         </ul>
+
       </div>
     </div>
   
@@ -56,13 +68,24 @@
       <div class="col-md-12">
         <div class="tab-content my-4" id="pills-tabContent">
 
+
+
+        <div class="tab-content my-5" id="pills-tabContent">
+
           {{-- INFORMACION --}}
           <div class="tab-pane fade show active" id="pills-informacion" role="tabpanel" aria-labelledby="pills-informacion-tab">
+            
             <!--DATOS PERSONALES-->
+
             <div class="row navPerfil2">
               <div class="col-md-12 borderB px-4 pt-4 pb-3 d-flex justify-content-between">
                 <h5 class="perfTitle">Datos Personales</h5>
                 <a class="btn btn-primary" href="{{ route('perfiles.edit', ['perfil' => $perfil->id]) }}" role="button">Editar Perfil</a>
+
+            <div class="row py-3">
+              <div class="col-md-2">
+                <span class="h6 sp1">DATOS PERSONALES</span>
+
               </div>
                
               <div class="col-md-12 p-4" id="datosPersonales">
@@ -224,5 +247,6 @@
     </div>
 
   </div>
+
 
 @stop
