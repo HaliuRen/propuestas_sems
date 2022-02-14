@@ -55,17 +55,20 @@
 } 
 
 // BREAD
-
-.containerBread nav ol{
+.content-header {
     background-color: #fff;
-}
+  }
+
 .breadcrumb-item + .breadcrumb-item::before {
-   
+    --bs-breadcrumb-divider: '|'!important;
     padding-right: 1.2rem;
     color: rgba(0,0,0,0.2);
 }
-
+.breadcrumb-item, .breadcrumb-item.active{
+    font-size: 14px!important;
+}
 .breadcrumb-item a{
+    
     text-decoration: none;
     color: rgba(0,0,0,0.4);
     font-weight: 600;

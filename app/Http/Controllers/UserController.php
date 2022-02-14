@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Perfil;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 
-class PerfilController extends Controller
+
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +17,9 @@ class PerfilController extends Controller
      */
     public function index()
     {
-        // auth::user()->perfiles->dd();
+        // $data = User::all();
+        $perfil = Perfil::all();
+        return view('usuarios.index', compact('perfil'));
     }
 
     /**
@@ -43,35 +46,37 @@ class PerfilController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Perfil  $perfil
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show(Perfil $perfil)
     {
-        return view('perfiles.show', compact('perfil'));
+        // $perfil = Perfil::all();
+        return view('usuarios.show', compact('perfil'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Perfil  $perfil
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit(Perfil $perfil)
     {
-        return view('perfiles.edit', compact('perfil'));
+        // $perfil = Perfil::all();
+        return view('usuarios.edit', compact('perfil'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Perfil  $perfil
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Perfil $perfil)
+    public function update(Request $request,Perfil  $perfil)
     {
-
+        
         // Validar entrada de datos
         $data = request()->validate([
             'rfc' => 'required',
@@ -110,18 +115,18 @@ class PerfilController extends Controller
         // Asignar los datos
 
         
-        auth()->user()->dcontacto->email = $data['email'];
-        auth()->user()->dcontacto->telefono = $data['telefono'];
-        auth()->user()->dcontacto->telefono_contacto = $data['telefono_contacto'];
-        auth()->user()->dcontacto->estado = $data['estado'];
-        auth()->user()->dcontacto->municipio = $data['municipio'];
-        auth()->user()->dcontacto->colonia = $data['colonia'];
-        auth()->user()->dcontacto->calle = $data['calle'];
-        auth()->user()->dcontacto->numero = $data['numero'];
-        auth()->user()->dcontacto->cp = $data['cp'];
-        auth()->user()->dcontacto->fb = $data['fb'];
-        auth()->user()->dcontacto->twitter = $data['twitter'];
-        auth()->user()->dcontacto->save();
+        $perfil->usuario->dcontacto->email = $data['email'];
+        $perfil->usuario->dcontacto->telefono = $data['telefono'];
+        $perfil->usuario->dcontacto->telefono_contacto = $data['telefono_contacto'];
+        $perfil->usuario->dcontacto->estado = $data['estado'];
+        $perfil->usuario->dcontacto->municipio = $data['municipio'];
+        $perfil->usuario->dcontacto->colonia = $data['colonia'];
+        $perfil->usuario->dcontacto->calle = $data['calle'];
+        $perfil->usuario->dcontacto->numero = $data['numero'];
+        $perfil->usuario->dcontacto->cp = $data['cp'];
+        $perfil->usuario->dcontacto->fb = $data['fb'];
+        $perfil->usuario->dcontacto->twitter = $data['twitter'];
+        $perfil->usuario->dcontacto->save();
 
         // Eliminar url y name de $data
         unset($data['email']);
@@ -136,23 +141,23 @@ class PerfilController extends Controller
         unset($data['fb']);
         unset($data['twitter']);
 
-        auth()->user()->perfil()->update( array_merge(
+        $perfil->update( array_merge(
             $data,
             $array_imagen ?? []
         ));
 
         // Redireccionar
-        return redirect()->action('PerfilController@show',['perfil' => Auth::user()->id]);
-       
+        return redirect()->action('UserController@show',['perfil' => $perfil->id]);
+        
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Perfil  $perfil
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Perfil $perfil)
+    public function destroy($id)
     {
         //
     }

@@ -26,7 +26,10 @@ Route::get('/perfiles/{perfil}', 'PerfilController@show')->name('perfiles.show')
 Route::get('/perfiles/{perfil}/edit', 'PerfilController@edit')->name('perfiles.edit');
 Route::put('perfiles/{perfil}', 'PerfilController@update')->name('perfiles.update');
 
-
+Route::get('/usuarios', 'UserController@index')->name('usuarios.index');
+Route::get('/usuarios/{perfil}', 'UserController@show')->name('usuarios.show');
+Route::get('/usuarios/{perfil}/edit', 'UserController@edit')->name('usuarios.edit');
+Route::put('/usuarios/{perfil}', 'UserController@update')->name('usuarios.update');
 
 Auth::routes();
 
