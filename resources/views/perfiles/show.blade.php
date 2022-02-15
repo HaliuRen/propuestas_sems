@@ -3,20 +3,17 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb ">
+      <li class="breadcrumb-item "><h4>{{$perfil->usuario->name}}</h4></li>
+      <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{$perfil->nombre}} {{$perfil->apaterno}} {{$perfil->amaterno}}</li>
+    </ol>
+  </nav>
 @stop
 
 @section('content')
-<div class="containerBread">
-  <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '|';">
-      <ol class="breadcrumb p-3">
-        <li class="breadcrumb-item "><h4>{{$perfil->usuario->name}}</h4></li>
-        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Perfil</li>
-      </ol>
-  </nav>
-</div>
-      <div class="container p-2">
+      <div class="container p-2 mt-2">
         {{-- Perfil --}}
         <div id="containerPerfil" class="row p-4 d-flex align-items-baseline">
           <div class="col-md-2">
@@ -29,7 +26,7 @@
             <ul class="list-group list-group-horizontal">
               <li class="list-group-item"><i class="fas fa-user-circle"></i> Admin </li>
               <li class="list-group-item"><i class="fas fa-address-card"></i> 210021016 </li>
-              <li class="list-group-item"><i class="fas fa-envelope"></i>  {{$perfil->usuario->email}} </li>
+              <li class="list-group-item"><i class="fas fa-envelope"></i>  {{$perfil->usuario->dcontacto->email}} </li>
             </ul>
             {{-- <a href="{{$perfil->usuario->url}}"> visitar Sitio Web</a> --}}
           </div>

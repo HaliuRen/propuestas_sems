@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Perfil extends Model
 {
     protected $fillable = [
-        'rfc'
+        'rfc',
+        'nombre',
+        'apaterno',
+        'amaterno',
+        'sexo',
+        'imagen'
     ];
     // Relacion 1:1 de perfil con usuario
     public function usuario(){

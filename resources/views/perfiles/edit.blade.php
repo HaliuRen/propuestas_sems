@@ -3,23 +3,19 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb ">
+            <li class="breadcrumb-item "><h4>Editar Perfil</h4></li>
+            <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{route('perfiles.show',['perfil' => $perfil->id])}}">{{$perfil->nombre}} {{$perfil->apaterno}} {{$perfil->amaterno}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Editar Usuario</li>
+        </ol>
+    </nav>
 @stop
 
 @section('content')
-<div class="containerBread">
-    <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '|';">
-        <ol class="breadcrumb p-3">
-          <li class="breadcrumb-item "><h4>Editar Perfil</h4></li>
-          <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-          <li class="breadcrumb-item"><a href="{{ route('perfiles.show', ['perfil' => $perfil->id]) }}">Perfil</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Editar</li>
-        </ol>
-    </nav>
-</div>
 
-
-<div class="container p-2">
+<div class="container p-2 mt-2">
     {{-- {{ $perfil->usuario->dcontacto->email }} --}}
     {{-- Menu perfil  --}}
     <div id="navPerfil" class="row p-4">
